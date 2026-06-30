@@ -4,9 +4,15 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  background: #f8faf7;
+}
+
 body {
   margin: 0;
   font-family: 'Montserrat', system-ui, sans-serif;
+  background: #f8faf7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

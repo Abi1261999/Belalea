@@ -1,6 +1,9 @@
 import pageImage from '../assets/belalea-page.jpg'
 import './PageImage.css'
 
+const IMAGE_WIDTH = 1920
+const IMAGE_HEIGHT = 10929
+
 const SECTION_TARGETS = [
   { id: 'top', top: 0 },
   { id: 'about', top: 1900 },
@@ -50,6 +53,10 @@ const HOTSPOTS = [
   { label: 'Pinterest', href: '#contacts', x: 1080, y: 10640, width: 44, height: 44 },
 ]
 
+function toPercent(value, total) {
+  return `${(value / total) * 100}%`
+}
+
 function PageImage() {
   return (
     <main className="page-image" aria-label="Belaléa homepage design">
@@ -59,7 +66,7 @@ function PageImage() {
             className="page-image__target"
             id={target.id}
             key={target.id}
-            style={{ top: `${target.top}px` }}
+            style={{ top: toPercent(target.top, IMAGE_HEIGHT) }}
             aria-hidden="true"
           />
         ))}
@@ -70,6 +77,10 @@ function PageImage() {
           alt="Belaléa homepage with oils and flour from farm ingredients"
           width="1920"
           height="10929"
+          loading="eager"
+          decoding="async"
+          fetchPriority="high"
+          draggable="false"
         />
 
         {HOTSPOTS.map((hotspot) => (
@@ -77,11 +88,12 @@ function PageImage() {
             className="page-image__hotspot"
             href={hotspot.href}
             key={hotspot.label}
+            aria-label={hotspot.label}
             style={{
-              left: `${hotspot.x}px`,
-              top: `${hotspot.y}px`,
-              width: `${hotspot.width}px`,
-              height: `${hotspot.height}px`,
+              left: toPercent(hotspot.x, IMAGE_WIDTH),
+              top: toPercent(hotspot.y, IMAGE_HEIGHT),
+              width: toPercent(hotspot.width, IMAGE_WIDTH),
+              height: toPercent(hotspot.height, IMAGE_HEIGHT),
             }}
           >
             {hotspot.label}
