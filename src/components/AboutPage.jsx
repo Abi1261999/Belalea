@@ -1,138 +1,101 @@
-import { useState } from 'react'
-import logo from '../assets/logo.svg'
+import aboutImage from '../assets/about-page.jpg'
 import './AboutPage.css'
 
-const products = ['Масло тыквенное, 250мл', 'Масло тыквенное, 250мл', 'Масло тыквенное, 250мл', 'Масло тыквенное, 250мл']
+const IMAGE_WIDTH = 1920
+const IMAGE_HEIGHT = 5402
+
+const HOTSPOTS = [
+  { label: 'На главную', target: 'top', x: 150, y: 50, width: 290, height: 110 },
+  { label: 'О нас', target: 'about-page', x: 540, y: 72, width: 90, height: 72 },
+  { label: 'Каталог', target: 'catalog', x: 650, y: 72, width: 135, height: 72 },
+  { label: 'Дилерам', target: 'dealers', x: 790, y: 72, width: 135, height: 72 },
+  { label: 'Новости', target: 'news', x: 930, y: 72, width: 120, height: 72 },
+  { label: 'Контакты', target: 'contacts', x: 1582, y: 62, width: 190, height: 84 },
+  { label: 'Контакты в описании', target: 'contacts', x: 985, y: 1640, width: 205, height: 82 },
+  { label: 'Смотреть все предложения', target: 'catalog', x: 1400, y: 3126, width: 250, height: 84 },
+  { label: 'Предложение месяца 1', target: 'catalog', x: 260, y: 3370, width: 340, height: 560 },
+  { label: 'Предложение месяца 2', target: 'catalog', x: 620, y: 3370, width: 340, height: 560 },
+  { label: 'Предложение месяца 3', target: 'catalog', x: 980, y: 3370, width: 340, height: 560 },
+  { label: 'Предложение месяца 4', target: 'catalog', x: 1340, y: 3370, width: 340, height: 560 },
+]
+
+const SEARCH_BOX = { x: 1184, y: 70, width: 300, height: 72 }
+const SEARCH_BUTTON = { x: 1490, y: 62, width: 80, height: 84 }
+
+function toPercent(value, total) {
+  return `${(value / total) * 100}%`
+}
 
 function AboutPage({ onNavigate }) {
-  const [searchQuery, setSearchQuery] = useState('')
-
   function handleSearch(event) {
     event.preventDefault()
     onNavigate('catalog')
   }
 
+  function handleHotspotClick(event, hotspot) {
+    event.preventDefault()
+    onNavigate(hotspot.target)
+  }
+
   return (
-    <main className="about-page">
-      <header className="about-header">
-        <button className="about-header__logo" type="button" onClick={() => onNavigate('top')}>
-          <img src={logo} alt="Belaléa" />
-        </button>
+    <main className="about-page-image" aria-label="Belaléa about page design">
+      <div className="about-page-image__canvas">
+        <img
+          className="about-page-image__asset"
+          src={aboutImage}
+          alt="Belaléa about page with natural products and monthly offers"
+          width="1920"
+          height="5402"
+          loading="eager"
+          decoding="async"
+          fetchPriority="high"
+          draggable="false"
+        />
 
-        <nav className="about-header__nav" aria-label="Основная навигация">
-          <button type="button" onClick={() => onNavigate('about-page')}>
-            О нас
-          </button>
-          <button type="button" onClick={() => onNavigate('catalog')}>
-            Каталог
-          </button>
-          <button type="button" onClick={() => onNavigate('dealers')}>
-            Дилерам
-          </button>
-          <button type="button" onClick={() => onNavigate('news')}>
-            Новости
-          </button>
-        </nav>
-
-        <form className="about-header__search" onSubmit={handleSearch} role="search">
+        <form className="about-page-image__search" onSubmit={handleSearch} role="search">
           <input
+            className="about-page-image__search-input"
             type="search"
-            value={searchQuery}
-            onChange={(event) => setSearchQuery(event.target.value)}
             placeholder="Поиск..."
             aria-label="Поиск по каталогу"
+            style={{
+              left: toPercent(SEARCH_BOX.x, IMAGE_WIDTH),
+              top: toPercent(SEARCH_BOX.y, IMAGE_HEIGHT),
+              width: toPercent(SEARCH_BOX.width, IMAGE_WIDTH),
+              height: toPercent(SEARCH_BOX.height, IMAGE_HEIGHT),
+            }}
           />
-          <button type="submit" aria-label="Найти">
-            ●
-          </button>
+          <button
+            className="about-page-image__search-button"
+            type="submit"
+            aria-label="Найти"
+            style={{
+              left: toPercent(SEARCH_BUTTON.x, IMAGE_WIDTH),
+              top: toPercent(SEARCH_BUTTON.y, IMAGE_HEIGHT),
+              width: toPercent(SEARCH_BUTTON.width, IMAGE_WIDTH),
+              height: toPercent(SEARCH_BUTTON.height, IMAGE_HEIGHT),
+            }}
+          />
         </form>
 
-        <button className="about-header__contact" type="button" onClick={() => onNavigate('contacts')}>
-          Контакты
-        </button>
-      </header>
-
-      <section className="about-hero">
-        <h1>О нас</h1>
-      </section>
-
-      <section className="about-section about-section--intro">
-        <div className="about-photo about-photo--plate" aria-hidden="true" />
-        <div className="about-copy">
-          <span>О нас</span>
-          <h2>Натуральные продукты - здоровое население</h2>
-          <p>
-            Belaléa создает натуральные масла, муку и каши из фермерского сырья. Мы бережно
-            сохраняем вкус и пользу семян, чтобы каждый продукт был качественным и свежим.
-          </p>
-          <div className="about-features">
-            <article>
-              <strong>Современное сельское хозяйство</strong>
-              <small>Ответственный подход к производству</small>
-            </article>
-            <article>
-              <strong>Выращиваем без пестицидов</strong>
-              <small>Контроль качества на каждом этапе</small>
-            </article>
-          </div>
-          <button type="button" onClick={() => onNavigate('catalog')}>
-            Каталог
-          </button>
-        </div>
-      </section>
-
-      <section className="about-section about-section--values">
-        <div className="about-copy">
-          <span>Почему мы</span>
-          <h2>Мы закупаем семена и орехи у лучших фермеров.</h2>
-          <p>
-            Работа с локальными поставщиками помогает нам выбирать сырье с понятным происхождением
-            и гарантировать стабильный вкус продукции.
-          </p>
-          <ul>
-            <li>100% натуральная продукция</li>
-            <li>Высокие стандарты качества</li>
-            <li>Ответственное производство</li>
-          </ul>
-        </div>
-        <div className="about-photo about-photo--green" aria-hidden="true" />
-      </section>
-
-      <section className="about-benefits">
-        <article>
-          <span>✓</span>
-          <h3>Доступность</h3>
-          <p>Честные условия и понятный ассортимент.</p>
-        </article>
-        <article>
-          <span>♥</span>
-          <h3>100% свежесть</h3>
-          <p>Производство из отборного сырья.</p>
-        </article>
-        <article>
-          <span>●</span>
-          <h3>Поддержка</h3>
-          <p>Помогаем клиентам и дилерам.</p>
-        </article>
-      </section>
-
-      <section className="about-offers">
-        <div className="about-offers__heading">
-          <h2>Лучшие предложения месяца</h2>
-          <button type="button" onClick={() => onNavigate('catalog')}>
-            Смотреть все
-          </button>
-        </div>
-        <div className="about-products">
-          {products.map((product, index) => (
-            <button className="about-product" type="button" onClick={() => onNavigate('catalog')} key={`${product}-${index}`}>
-              <span>Масло</span>
-              <div className="about-product__bottle" aria-hidden="true" />
-              <strong>{product}</strong>
-            </button>
-          ))}
-        </div>
-      </section>
+        {HOTSPOTS.map((hotspot) => (
+          <a
+            className="about-page-image__hotspot"
+            href={`#${hotspot.target}`}
+            key={hotspot.label}
+            aria-label={hotspot.label}
+            onClick={(event) => handleHotspotClick(event, hotspot)}
+            style={{
+              left: toPercent(hotspot.x, IMAGE_WIDTH),
+              top: toPercent(hotspot.y, IMAGE_HEIGHT),
+              width: toPercent(hotspot.width, IMAGE_WIDTH),
+              height: toPercent(hotspot.height, IMAGE_HEIGHT),
+            }}
+          >
+            {hotspot.label}
+          </a>
+        ))}
+      </div>
     </main>
   )
 }

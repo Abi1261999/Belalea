@@ -1,437 +1,86 @@
-.about-page {
-  max-width: 1920px;
+.about-page-image {
+  display: flex;
+  justify-content: center;
+  width: 100%;
   min-height: 100vh;
-  margin: 0 auto;
-  background: #ffffff;
-  color: #25485a;
-  box-shadow: 0 24px 80px rgba(24, 58, 45, 0.08);
-}
-
-.about-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 32px;
-  max-width: 1560px;
-  margin: 0 auto;
-  padding: 38px 96px;
-}
-
-.about-header button {
-  font: inherit;
-  cursor: pointer;
-}
-
-.about-header__logo {
-  display: inline-flex;
-  padding: 0;
-  background: transparent;
-  border: 0;
-}
-
-.about-header__logo img {
-  width: 210px;
-  height: auto;
-}
-
-.about-header__nav {
-  display: flex;
-  align-items: center;
-  gap: 42px;
-}
-
-.about-header__nav button {
-  padding: 10px 0;
-  font-family: 'Montserrat', system-ui, sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  color: #244658;
-  background: transparent;
-  border: 0;
-}
-
-.about-header__nav button:hover,
-.about-header__nav button:focus-visible {
-  color: #80b857;
-}
-
-.about-header__search {
-  display: flex;
-  align-items: center;
-  min-width: 330px;
-  height: 60px;
-  padding-left: 26px;
-  border-radius: 999px;
+  padding: 0 0 clamp(24px, 4vw, 64px);
+  overflow-x: hidden;
   background: #f8faf7;
 }
 
-.about-header__search input {
-  flex: 1;
-  min-width: 0;
+.about-page-image__canvas {
+  position: relative;
+  width: min(100%, 1920px);
+  aspect-ratio: 1920 / 5402;
+  background: #ffffff;
+  box-shadow: 0 24px 80px rgba(24, 58, 45, 0.08);
+}
+
+.about-page-image__asset {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: auto;
+  user-select: none;
+}
+
+.about-page-image__search {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.about-page-image__search-input,
+.about-page-image__search-button {
+  position: absolute;
+  pointer-events: auto;
   border: 0;
   outline: 0;
+}
+
+.about-page-image__search-input {
+  padding: 0 1.35%;
+  border-radius: 999px 0 0 999px;
+  font-family: 'Montserrat', system-ui, sans-serif;
+  font-size: clamp(10px, 0.75vw, 14px);
+  color: #244658;
   background: transparent;
-  font-family: 'Montserrat', system-ui, sans-serif;
-  color: #244658;
 }
 
-.about-header__search button,
-.about-header__contact {
-  border: 0;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+.about-page-image__search-input::placeholder {
+  color: rgba(36, 70, 88, 0.48);
 }
 
-.about-header__search button {
-  width: 56px;
-  height: 56px;
+.about-page-image__search-input:focus {
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: inset 0 0 0 2px rgba(128, 184, 87, 0.28);
+}
+
+.about-page-image__search-button {
   border-radius: 50%;
-  color: #ffffff;
-  background: #80b857;
+  background: transparent;
+  cursor: pointer;
 }
 
-.about-header__contact {
-  min-height: 58px;
-  padding: 0 28px;
-  border-radius: 999px;
-  font-family: 'Montserrat', system-ui, sans-serif;
-  font-weight: 700;
-  color: #244658;
-  background: #ffffff;
-  box-shadow: 0 0 0 1px rgba(36, 70, 88, 0.08), 0 12px 30px rgba(36, 70, 88, 0.08);
-}
-
-.about-header__search button:hover,
-.about-header__contact:hover {
-  transform: translateY(-2px);
-}
-
-.about-hero {
-  display: grid;
-  place-items: center;
-  min-height: 280px;
-  background:
-    radial-gradient(circle at 12% 40%, rgba(128, 184, 87, 0.28) 0 8%, transparent 9%),
-    radial-gradient(circle at 86% 42%, rgba(245, 211, 80, 0.34) 0 7%, transparent 8%),
-    linear-gradient(90deg, #eef7ec 0%, #fff8ef 50%, #f4fbf2 100%);
+.about-page-image__hotspot {
+  position: absolute;
+  z-index: 1;
+  display: block;
   overflow: hidden;
+  color: transparent;
+  text-decoration: none;
+  border-radius: clamp(6px, 0.8vw, 14px);
+  outline: 0;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
 }
 
-.about-hero h1 {
-  margin: 0;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(58px, 6vw, 92px);
-  line-height: 1;
-  color: #25485a;
+.about-page-image__hotspot:hover {
+  background: rgba(128, 184, 87, 0.08);
 }
 
-.about-section {
-  display: grid;
-  grid-template-columns: minmax(320px, 0.95fr) minmax(340px, 1fr);
-  align-items: center;
-  gap: 96px;
-  max-width: 1500px;
-  margin: 0 auto;
-  padding: 140px 96px;
-}
-
-.about-section--values {
-  background: #fbfbfb;
-}
-
-.about-copy span {
-  display: block;
-  margin-bottom: 12px;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 42px;
-  font-style: italic;
-  color: #80b857;
-}
-
-.about-copy h2 {
-  margin: 0;
-  max-width: 620px;
-  font-family: 'Montserrat', system-ui, sans-serif;
-  font-size: clamp(38px, 4vw, 58px);
-  line-height: 1.12;
-  color: #25485a;
-}
-
-.about-copy p {
-  max-width: 660px;
-  margin: 28px 0 0;
-  font-family: 'Montserrat', system-ui, sans-serif;
-  font-size: 18px;
-  line-height: 1.8;
-  color: #667984;
-}
-
-.about-copy button,
-.about-offers__heading button {
-  min-height: 58px;
-  margin-top: 34px;
-  padding: 0 32px;
-  border: 0;
-  border-radius: 12px;
-  font-family: 'Montserrat', system-ui, sans-serif;
-  font-weight: 700;
-  color: #ffffff;
-  background: #244658;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.about-copy button:hover,
-.about-offers__heading button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 28px rgba(36, 70, 88, 0.18);
-}
-
-.about-features {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 28px;
-  margin-top: 38px;
-}
-
-.about-features article,
-.about-benefits article {
-  padding: 24px;
-  border-radius: 22px;
-  background: #ffffff;
-  box-shadow: 0 18px 48px rgba(36, 70, 88, 0.08);
-}
-
-.about-features strong,
-.about-features small {
-  display: block;
-  font-family: 'Montserrat', system-ui, sans-serif;
-}
-
-.about-features strong {
-  margin-bottom: 8px;
-  color: #244658;
-}
-
-.about-features small {
-  color: #667984;
-}
-
-.about-photo {
-  min-height: 520px;
-  border-radius: 40px;
-  box-shadow: 0 28px 70px rgba(36, 70, 88, 0.14);
-}
-
-.about-photo--plate {
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 48% 48%, #f6f3e7 0 24%, transparent 25%),
-    radial-gradient(circle at 55% 42%, #83c657 0 8%, transparent 9%),
-    radial-gradient(circle at 32% 52%, #e03535 0 7%, transparent 8%),
-    radial-gradient(circle at 62% 68%, #f1a33c 0 8%, transparent 9%),
-    radial-gradient(circle at 44% 70%, #7b3f2a 0 5%, transparent 6%),
-    #edf4e9;
-}
-
-.about-photo--green {
-  background:
-    radial-gradient(circle at 30% 38%, rgba(128, 184, 87, 0.54) 0 8%, transparent 9%),
-    radial-gradient(circle at 64% 62%, rgba(255, 255, 255, 0.9) 0 11%, transparent 12%),
-    radial-gradient(circle at 76% 30%, rgba(37, 72, 90, 0.18) 0 10%, transparent 11%),
-    linear-gradient(135deg, #d9f1d8, #a8d6a9);
-}
-
-.about-copy ul {
-  display: grid;
-  gap: 16px;
-  margin: 34px 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.about-copy li {
-  padding: 18px 24px;
-  border-radius: 18px;
-  font-family: 'Montserrat', system-ui, sans-serif;
-  font-weight: 700;
-  color: #244658;
-  background: #ffffff;
-  box-shadow: 0 12px 32px rgba(36, 70, 88, 0.06);
-}
-
-.about-benefits {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 34px;
-  max-width: 1000px;
-  margin: -30px auto 110px;
-  padding: 0 40px;
-}
-
-.about-benefits article {
-  text-align: center;
-}
-
-.about-benefits span {
-  display: inline-grid;
-  place-items: center;
-  width: 46px;
-  height: 46px;
-  margin-bottom: 18px;
-  border-radius: 50%;
-  color: #244658;
-  background: #edf7ed;
-}
-
-.about-benefits h3 {
-  margin: 0 0 8px;
-  font-family: 'Montserrat', system-ui, sans-serif;
-  color: #244658;
-}
-
-.about-benefits p {
-  margin: 0;
-  font-family: 'Montserrat', system-ui, sans-serif;
-  color: #667984;
-}
-
-.about-offers {
-  padding: 120px 96px 140px;
-  background: #80b894;
-}
-
-.about-offers__heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 32px;
-  max-width: 1500px;
-  margin: 0 auto 46px;
-}
-
-.about-offers__heading h2 {
-  margin: 0;
-  font-family: 'Montserrat', system-ui, sans-serif;
-  font-size: clamp(34px, 4vw, 52px);
-  color: #ffffff;
-}
-
-.about-offers__heading button {
-  margin: 0;
-  color: #244658;
-  background: #f4d259;
-}
-
-.about-products {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 34px;
-  max-width: 1500px;
-  margin: 0 auto;
-}
-
-.about-product {
-  min-height: 420px;
-  padding: 24px 24px 28px;
-  border: 0;
-  border-radius: 24px;
-  background: #ffffff;
-  cursor: pointer;
-  text-align: left;
-  box-shadow: 0 20px 45px rgba(36, 70, 88, 0.12);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.about-product:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 28px 60px rgba(36, 70, 88, 0.18);
-}
-
-.about-product > span {
-  display: inline-flex;
-  padding: 8px 16px;
-  border-radius: 8px;
-  font-family: 'Montserrat', system-ui, sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  color: #ffffff;
-  background: #244658;
-}
-
-.about-product__bottle {
-  width: 86px;
-  height: 230px;
-  margin: 34px auto 24px;
-  border-radius: 24px 24px 12px 12px;
-  background: linear-gradient(145deg, #172821, #243a2f);
-  box-shadow: inset 0 -80px 0 #f2ead8;
-}
-
-.about-product strong {
-  display: block;
-  font-family: 'Montserrat', system-ui, sans-serif;
-  font-size: 16px;
-  color: #244658;
-}
-
-@media (max-width: 1100px) {
-  .about-header {
-    flex-wrap: wrap;
-    padding: 28px 32px;
-  }
-
-  .about-header__nav {
-    order: 3;
-    width: 100%;
-    justify-content: center;
-  }
-
-  .about-section {
-    grid-template-columns: 1fr;
-    padding: 90px 32px;
-  }
-
-  .about-products {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 700px) {
-  .about-header {
-    gap: 18px;
-  }
-
-  .about-header__logo img {
-    width: 160px;
-  }
-
-  .about-header__nav {
-    gap: 18px;
-    overflow-x: auto;
-    justify-content: flex-start;
-  }
-
-  .about-header__search,
-  .about-header__contact {
-    width: 100%;
-  }
-
-  .about-hero {
-    min-height: 180px;
-  }
-
-  .about-features,
-  .about-benefits,
-  .about-products {
-    grid-template-columns: 1fr;
-  }
-
-  .about-offers {
-    padding: 80px 24px;
-  }
-
-  .about-offers__heading {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+.about-page-image__hotspot:focus-visible {
+  background: rgba(128, 184, 87, 0.16);
+  box-shadow: 0 0 0 4px rgba(128, 184, 87, 0.45);
 }
