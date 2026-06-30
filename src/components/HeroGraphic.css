@@ -1,0 +1,42 @@
+.hero-graphic {
+  position: relative;
+  width: 100%;
+  height: 898px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.hero-graphic__image {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  display: block;
+  width: 1920px;
+  height: 898px;
+  max-width: none;
+  opacity: 1;
+  transform: translateX(-50%) rotate(0deg);
+}
+
+@media (max-width: 960px) {
+  .hero-graphic {
+    height: 620px;
+  }
+
+  .hero-graphic__image {
+    top: -90px;
+    transform: translateX(-50%) rotate(0deg) scale(0.78);
+    transform-origin: top center;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-graphic {
+    height: 460px;
+  }
+
+  .hero-graphic__image {
+    top: -140px;
+    transform: translateX(-50%) rotate(0deg) scale(0.58);
+  }
+}
