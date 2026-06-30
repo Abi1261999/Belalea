@@ -2,25 +2,3 @@
   min-height: 100vh;
   background: #ffffff;
 }
-
-.app__main {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 80px 40px;
-  text-align: center;
-}
-
-.app__title {
-  margin: 0 0 16px;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 48px;
-  font-weight: 500;
-  color: #2c3e50;
-}
-
-.app__subtitle {
-  margin: 0;
-  font-family: 'Montserrat', system-ui, sans-serif;
-  font-size: 18px;
-  color: #6b7c8a;
-}

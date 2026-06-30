@@ -1,0 +1,12 @@
+.page-image {
+  width: 100%;
+  overflow-x: auto;
+  background: #ffffff;
+}
+
+.page-image__asset {
+  display: block;
+  width: 1920px;
+  height: 10929px;
+  max-width: none;
+}
