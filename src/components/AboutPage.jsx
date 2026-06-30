@@ -7,16 +7,16 @@ const IMAGE_HEIGHT = 5402
 const HOTSPOTS = [
   { label: 'На главную', target: 'top', x: 150, y: 50, width: 290, height: 110 },
   { label: 'О нас', target: 'about-page', x: 540, y: 72, width: 90, height: 72 },
-  { label: 'Каталог', target: 'catalog', x: 650, y: 72, width: 135, height: 72 },
+  { label: 'Каталог', target: 'shop-page', x: 650, y: 72, width: 135, height: 72 },
   { label: 'Дилерам', target: 'dealers', x: 790, y: 72, width: 135, height: 72 },
   { label: 'Новости', target: 'news', x: 930, y: 72, width: 120, height: 72 },
   { label: 'Контакты', target: 'contacts', x: 1582, y: 62, width: 190, height: 84 },
   { label: 'Контакты в описании', target: 'contacts', x: 985, y: 1640, width: 205, height: 82 },
-  { label: 'Смотреть все предложения', target: 'catalog', x: 1400, y: 3126, width: 250, height: 84 },
-  { label: 'Предложение месяца 1', target: 'catalog', x: 260, y: 3370, width: 340, height: 560 },
-  { label: 'Предложение месяца 2', target: 'catalog', x: 620, y: 3370, width: 340, height: 560 },
-  { label: 'Предложение месяца 3', target: 'catalog', x: 980, y: 3370, width: 340, height: 560 },
-  { label: 'Предложение месяца 4', target: 'catalog', x: 1340, y: 3370, width: 340, height: 560 },
+  { label: 'Смотреть все предложения', target: 'shop-page', x: 1400, y: 3126, width: 250, height: 84 },
+  { label: 'Предложение месяца 1', target: 'shop-page', x: 260, y: 3370, width: 340, height: 560 },
+  { label: 'Предложение месяца 2', target: 'shop-page', x: 620, y: 3370, width: 340, height: 560 },
+  { label: 'Предложение месяца 3', target: 'shop-page', x: 980, y: 3370, width: 340, height: 560 },
+  { label: 'Предложение месяца 4', target: 'shop-page', x: 1340, y: 3370, width: 340, height: 560 },
 ]
 
 const SEARCH_BOX = { x: 1184, y: 70, width: 300, height: 72 }
@@ -29,7 +29,7 @@ function toPercent(value, total) {
 function AboutPage({ onNavigate }) {
   function handleSearch(event) {
     event.preventDefault()
-    onNavigate('catalog')
+    onNavigate('shop-page')
   }
 
   function handleHotspotClick(event, hotspot) {
