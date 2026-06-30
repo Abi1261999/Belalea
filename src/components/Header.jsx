@@ -10,12 +10,12 @@ const NAV_ITEMS = [
     uppercase: true,
     hasDropdown: true,
     dropdownItems: [
-      { label: 'Масла', href: '#catalog' },
-      { label: 'Мука', href: '#catalog' },
-      { label: 'Жмых', href: '#catalog' },
+      { label: 'Косметика', href: '#cosmetics' },
+      { label: 'Уход за кожей', href: '#skincare' },
+      { label: 'Ароматы', href: '#fragrances' },
     ],
   },
-  { label: 'Дилерам', href: '#dealers' },
+  { label: 'Диллерам', href: '#dealers' },
   { label: 'Новости', href: '#news' },
 ]
 
