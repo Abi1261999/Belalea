@@ -4,9 +4,43 @@
   background: #ffffff;
 }
 
+.page-image__canvas {
+  position: relative;
+  width: 1920px;
+  height: 10929px;
+}
+
 .page-image__asset {
   display: block;
   width: 1920px;
   height: 10929px;
   max-width: none;
+}
+
+.page-image__target {
+  position: absolute;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  scroll-margin-top: 24px;
+}
+
+.page-image__hotspot {
+  position: absolute;
+  z-index: 1;
+  display: block;
+  overflow: hidden;
+  color: transparent;
+  text-decoration: none;
+  border-radius: 14px;
+  outline: 0;
+}
+
+.page-image__hotspot:hover {
+  background: rgba(128, 184, 87, 0.08);
+}
+
+.page-image__hotspot:focus-visible {
+  background: rgba(128, 184, 87, 0.16);
+  box-shadow: 0 0 0 4px rgba(128, 184, 87, 0.45);
 }
