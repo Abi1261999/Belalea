@@ -1,8 +1,8 @@
-import aboutImage from '../assets/about-page.jpg'
-import './AboutPage.css'
+import productImage from '../assets/product-page.jpg'
+import './ProductPage.css'
 
 const IMAGE_WIDTH = 1920
-const IMAGE_HEIGHT = 5402
+const IMAGE_HEIGHT = 3458
 
 const HOTSPOTS = [
   { label: 'На главную', target: 'top', x: 150, y: 50, width: 290, height: 110 },
@@ -11,12 +11,18 @@ const HOTSPOTS = [
   { label: 'Дилерам', target: 'dealers', x: 790, y: 72, width: 135, height: 72 },
   { label: 'Новости', target: 'news', x: 930, y: 72, width: 120, height: 72 },
   { label: 'Контакты', target: 'contacts', x: 1582, y: 62, width: 190, height: 84 },
-  { label: 'Контакты в описании', target: 'contacts', x: 985, y: 1640, width: 205, height: 82 },
-  { label: 'Смотреть все предложения', target: 'shop-page', x: 1400, y: 3126, width: 250, height: 84 },
-  { label: 'Предложение месяца 1', target: 'product-page', x: 260, y: 3370, width: 340, height: 560 },
-  { label: 'Предложение месяца 2', target: 'product-page', x: 620, y: 3370, width: 340, height: 560 },
-  { label: 'Предложение месяца 3', target: 'product-page', x: 980, y: 3370, width: 340, height: 560 },
-  { label: 'Предложение месяца 4', target: 'product-page', x: 1340, y: 3370, width: 340, height: 560 },
+  { label: 'Основное изображение продукта', target: 'product-page', x: 260, y: 790, width: 590, height: 710 },
+  { label: 'Миниатюра продукта 1', target: 'product-page', x: 315, y: 1525, width: 105, height: 110 },
+  { label: 'Миниатюра продукта 2', target: 'product-page', x: 445, y: 1525, width: 105, height: 110 },
+  { label: 'Миниатюра продукта 3', target: 'product-page', x: 575, y: 1525, width: 105, height: 110 },
+  { label: 'Миниатюра продукта 4', target: 'product-page', x: 705, y: 1525, width: 105, height: 110 },
+  { label: 'Купить на Wildberries', href: 'https://www.wildberries.ru/', x: 940, y: 1138, width: 210, height: 82 },
+  { label: 'Купить на Ozon', href: 'https://www.ozon.ru/', x: 1170, y: 1138, width: 210, height: 82 },
+  { label: 'Похожий продукт 1', target: 'product-page', x: 260, y: 1785, width: 330, height: 550 },
+  { label: 'Похожий продукт 2', target: 'product-page', x: 620, y: 1785, width: 330, height: 550 },
+  { label: 'Похожий продукт 3', target: 'product-page', x: 980, y: 1785, width: 330, height: 550 },
+  { label: 'Похожий продукт 4', target: 'product-page', x: 1340, y: 1785, width: 330, height: 550 },
+  { label: 'Подписаться на акции', href: 'mailto:needhelp@organia.com', x: 1360, y: 2696, width: 220, height: 82 },
 ]
 
 const SEARCH_BOX = { x: 1184, y: 70, width: 300, height: 72 }
@@ -26,35 +32,36 @@ function toPercent(value, total) {
   return `${(value / total) * 100}%`
 }
 
-function AboutPage({ onNavigate }) {
+function ProductPage({ onNavigate }) {
   function handleSearch(event) {
     event.preventDefault()
     onNavigate('shop-page')
   }
 
   function handleHotspotClick(event, hotspot) {
+    if (!hotspot.target) return
     event.preventDefault()
     onNavigate(hotspot.target)
   }
 
   return (
-    <main className="about-page-image" aria-label="Belaléa about page design">
-      <div className="about-page-image__canvas">
+    <main className="product-page-image" aria-label="Belaléa product detail page design">
+      <div className="product-page-image__canvas">
         <img
-          className="about-page-image__asset"
-          src={aboutImage}
-          alt="Belaléa about page with natural products and monthly offers"
+          className="product-page-image__asset"
+          src={productImage}
+          alt="Belaléa product detail page for rice flour"
           width="1920"
-          height="5402"
+          height="3458"
           loading="eager"
           decoding="async"
           fetchPriority="high"
           draggable="false"
         />
 
-        <form className="about-page-image__search" onSubmit={handleSearch} role="search">
+        <form className="product-page-image__search" onSubmit={handleSearch} role="search">
           <input
-            className="about-page-image__search-input"
+            className="product-page-image__search-input"
             type="search"
             placeholder="Поиск..."
             aria-label="Поиск по каталогу"
@@ -66,7 +73,7 @@ function AboutPage({ onNavigate }) {
             }}
           />
           <button
-            className="about-page-image__search-button"
+            className="product-page-image__search-button"
             type="submit"
             aria-label="Найти"
             style={{
@@ -80,8 +87,8 @@ function AboutPage({ onNavigate }) {
 
         {HOTSPOTS.map((hotspot) => (
           <a
-            className="about-page-image__hotspot"
-            href={`#${hotspot.target}`}
+            className="product-page-image__hotspot"
+            href={hotspot.href || `#${hotspot.target}`}
             key={hotspot.label}
             aria-label={hotspot.label}
             onClick={(event) => handleHotspotClick(event, hotspot)}
@@ -100,4 +107,4 @@ function AboutPage({ onNavigate }) {
   )
 }
 
-export default AboutPage
+export default ProductPage
