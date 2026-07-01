@@ -36,6 +36,8 @@
 .about-page-image__search-button {
   position: absolute;
   pointer-events: auto;
+  appearance: none;
+  -webkit-appearance: none;
   border: 0;
   outline: 0;
 }
@@ -45,17 +47,18 @@
   border-radius: 999px 0 0 999px;
   font-family: 'Montserrat', system-ui, sans-serif;
   font-size: clamp(10px, 0.75vw, 14px);
-  color: #244658;
+  color: transparent;
+  caret-color: transparent;
   background: transparent;
 }
 
 .about-page-image__search-input::placeholder {
-  color: rgba(36, 70, 88, 0.48);
+  color: transparent;
 }
 
 .about-page-image__search-input:focus {
-  background: rgba(255, 255, 255, 0.82);
-  box-shadow: inset 0 0 0 2px rgba(128, 184, 87, 0.28);
+  background: transparent;
+  box-shadow: none;
 }
 
 .about-page-image__search-button {
