@@ -5,17 +5,16 @@
   justify-content: center;
   width: 100%;
   min-height: 100vh;
-  padding: 0 0 clamp(24px, 4vw, 64px);
+  padding: 0 0 clamp(16px, 2vw, 32px);
   overflow-x: hidden;
-  background: #f8faf7;
+  background: #ffffff;
 }
 
 .blog-single-page-image__canvas {
   position: relative;
   width: min(100%, 1920px);
-  aspect-ratio: 1920 / 2920;
+  aspect-ratio: 1920 / 2680;
   background: #ffffff;
-  box-shadow: 0 24px 80px rgba(24, 58, 45, 0.08);
 }
 
 .blog-single-page-image__newsletter,
@@ -27,13 +26,13 @@
 .blog-single-page-image__newsletter {
   width: min(calc(100% - 40px), 1400px);
   aspect-ratio: 1400 / 323;
-  margin-top: clamp(72px, 7vw, 140px);
+  margin-top: clamp(28px, 3.5vw, 56px);
 }
 
 .blog-single-page-image__footer {
   width: min(calc(100% - 40px), 1297px);
   aspect-ratio: 1297 / 343;
-  margin-top: clamp(80px, 7vw, 130px);
+  margin-top: clamp(36px, 4vw, 68px);
 }
 
 .blog-single-page-image__asset,

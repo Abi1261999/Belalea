@@ -4,7 +4,7 @@ import newsletterImage from '../assets/newsletter-section.jpg'
 import './BlogSinglePage.css'
 
 const IMAGE_WIDTH = 1920
-const IMAGE_HEIGHT = 2920
+const IMAGE_HEIGHT = 2680
 const NEWSLETTER_WIDTH = 1400
 const NEWSLETTER_HEIGHT = 323
 const FOOTER_WIDTH = 1297
@@ -18,7 +18,7 @@ const HOTSPOTS = [
   { label: 'Новости', target: 'blog-page', x: 930, y: 72, width: 120, height: 72 },
   { label: 'Контакты', target: 'contacts', x: 1582, y: 62, width: 190, height: 84 },
   { label: 'Основное изображение новости', target: 'blog-single-page', x: 0, y: 205, width: 1920, height: 720 },
-  { label: 'Содержание статьи', target: 'blog-single-page', x: 490, y: 1240, width: 950, height: 1680 },
+  { label: 'Содержание статьи', target: 'blog-single-page', x: 490, y: 1240, width: 950, height: 1320 },
 ]
 
 const NEWSLETTER_HOTSPOTS = [
@@ -73,7 +73,7 @@ function BlogSinglePage({ onNavigate }) {
           src={blogSingleImage}
           alt="Belaléa blog article page about organic food"
           width="1920"
-          height="2920"
+          height="2680"
           loading="eager"
           decoding="async"
           fetchPriority="high"
