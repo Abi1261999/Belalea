@@ -45,8 +45,8 @@ function ContactPage({ onNavigate }) {
 
         <nav className="contact-header__nav" aria-label="Основная навигация">
           <button type="button" onClick={() => onNavigate('about-page')}>О нас</button>
-          <button type="button" onClick={() => onNavigate('shop-page')}>Каталог</button>
-          <button type="button" onClick={() => onNavigate('top')}>Дилерам</button>
+          <button type="button" onClick={() => onNavigate('shop-page')}>КАТАЛОГ</button>
+          <button type="button" onClick={() => onNavigate('dealers')}>Диллерам</button>
           <button type="button" onClick={() => onNavigate('blog-page')}>Новости</button>
         </nav>
 
