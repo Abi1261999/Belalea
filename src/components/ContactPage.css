@@ -163,66 +163,79 @@
 .contact-map__production { left: 63%; top: 67%; width: 27%; height: 13%; }
 
 .contact-form {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 44px 74px;
-  max-width: 1400px;
+  position: relative;
+  width: min(calc(100% - 40px), 1400px);
+  aspect-ratio: 1184 / 788;
   margin: 0 auto 130px;
-  padding: 0 70px;
-}
-
-.contact-form label {
-  display: grid;
-  gap: 14px;
-  font-weight: 800;
-  color: #244b5b;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  border: 2px solid #80b894;
-  border-radius: 14px;
-  padding: 0 32px;
-  color: #244b5b;
-  font: 18px 'Montserrat', system-ui, sans-serif;
   background: #ffffff;
 }
 
-.contact-form input {
-  height: 82px;
+.contact-form img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: auto;
+  user-select: none;
 }
 
-.contact-form textarea {
-  min-height: 260px;
-  padding-top: 28px;
-  resize: vertical;
+.contact-form__overlay {
+  position: absolute;
+  inset: 0;
 }
 
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-  color: #b5b5b5;
-  font-style: italic;
-}
-
-.contact-form__message {
-  grid-column: 1 / -1;
-}
-
-.contact-form button {
-  justify-self: start;
-  min-width: 190px;
-  height: 78px;
+.contact-form__overlay input,
+.contact-form__overlay textarea,
+.contact-form__overlay button {
+  position: absolute;
+  appearance: none;
+  -webkit-appearance: none;
   border: 0;
+  outline: 0;
+  background: transparent;
+}
+
+.contact-form__overlay input,
+.contact-form__overlay textarea {
+  padding: 0 2%;
+  color: #244b5b;
+  font: 18px 'Montserrat', system-ui, sans-serif;
+}
+
+.contact-form__overlay input::placeholder,
+.contact-form__overlay textarea::placeholder {
+  color: transparent;
+}
+
+.contact-form__name { left: 0%; top: 5.9%; width: 48%; height: 10.2%; }
+.contact-form__email { left: 52%; top: 5.9%; width: 48%; height: 10.2%; }
+.contact-form__company { left: 0%; top: 24.6%; width: 48%; height: 10.2%; }
+.contact-form__topic { left: 52%; top: 24.6%; width: 48%; height: 10.2%; }
+
+.contact-form__overlay .contact-form__message {
+  left: 0%;
+  top: 51%;
+  width: 100%;
+  height: 31.5%;
+  padding-top: 2%;
+  resize: none;
+}
+
+.contact-form__submit {
+  left: 0%;
+  top: 89.8%;
+  width: 18.6%;
+  height: 10.2%;
+  overflow: hidden;
+  color: transparent;
   border-radius: 12px;
-  color: #ffffff;
-  background: #244b5b;
-  font: 800 18px 'Montserrat', system-ui, sans-serif;
   cursor: pointer;
 }
 
 .contact-form__status {
-  align-self: center;
+  position: absolute;
+  left: 22%;
+  top: 92%;
   margin: 0;
   color: #80b857;
   font-weight: 700;
@@ -319,7 +332,7 @@
 
   .contact-intro,
   .contact-form {
-    padding-inline: 32px;
+    width: min(calc(100% - 40px), 1400px);
   }
 
   .contact-map {
@@ -354,6 +367,6 @@
   }
 
   .contact-form {
-    gap: 28px;
+    width: min(calc(100% - 24px), 1400px);
   }
 }

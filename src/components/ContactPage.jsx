@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import contactBanner from '../assets/contact-banner.jpg'
+import contactFormImage from '../assets/contact-form-section.jpg'
 import contactIntro from '../assets/contact-intro-section.jpg'
 import contactMap from '../assets/contact-map-section.jpg'
 import footerImage from '../assets/footer-section.jpg'
@@ -82,30 +83,18 @@ function ContactPage({ onNavigate }) {
         <a className="contact-map__production" href="https://maps.google.com/?q=Kletsk%20Nagdaliana" target="_blank" rel="noreferrer">Производство</a>
       </section>
 
-      <form className="contact-form" onSubmit={handleContactSubmit}>
-        <label>
-          <span>Как вас зовут*</span>
-          <input name="name" value={form.name} onChange={updateField} placeholder="Ирина, Денис, Елена" required />
-        </label>
-        <label>
-          <span>Ваша почта*</span>
-          <input name="email" type="email" value={form.email} onChange={updateField} placeholder="example@yourmail.com" required />
-        </label>
-        <label>
-          <span>Компания</span>
-          <input name="company" value={form.company} onChange={updateField} placeholder="Название вашей компании" />
-        </label>
-        <label>
-          <span>Тема обращения*</span>
-          <input name="topic" value={form.topic} onChange={updateField} placeholder="Напишите ваше предложение или вопрос" required />
-        </label>
-        <label className="contact-form__message">
-          <span>Сообщение*</span>
-          <textarea name="message" value={form.message} onChange={updateField} placeholder="Не забудьте поздороваться :)" required />
-        </label>
-        <button type="submit">Отправить</button>
+      <section className="contact-form">
+        <img src={contactFormImage} alt="Форма обратной связи" />
+        <form className="contact-form__overlay" onSubmit={handleContactSubmit}>
+          <input className="contact-form__name" name="name" value={form.name} onChange={updateField} placeholder="Ирина, Денис, Елена" aria-label="Как вас зовут" required />
+          <input className="contact-form__email" name="email" type="email" value={form.email} onChange={updateField} placeholder="example@yourmail.com" aria-label="Ваша почта" required />
+          <input className="contact-form__company" name="company" value={form.company} onChange={updateField} placeholder="Название вашей компании" aria-label="Компания" />
+          <input className="contact-form__topic" name="topic" value={form.topic} onChange={updateField} placeholder="Напишите ваше предложение или вопрос" aria-label="Тема обращения" required />
+          <textarea className="contact-form__message" name="message" value={form.message} onChange={updateField} placeholder="Не забудьте поздороваться :)" aria-label="Сообщение" required />
+          <button className="contact-form__submit" type="submit" aria-label="Отправить">Отправить</button>
+        </form>
         {sent && <p className="contact-form__status">Спасибо! Сообщение подготовлено к отправке.</p>}
-      </form>
+      </section>
 
       <section className="contact-newsletter">
         <img src={newsletterImage} alt="Узнайте первыми о новых акциях" />
