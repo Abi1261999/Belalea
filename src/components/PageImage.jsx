@@ -51,7 +51,7 @@ const HOTSPOTS = [
   { label: 'Twitter', target: 'contacts', x: 998, y: 10640, width: 44, height: 44 },
   { label: 'Pinterest', target: 'contacts', x: 1080, y: 10640, width: 44, height: 44 },
   { label: 'Style Guide', target: 'top', x: 1320, y: 10458, width: 150, height: 42 },
-  { label: '404 Not Found', target: 'top', x: 1320, y: 10510, width: 170, height: 42 },
+  { label: '404 Not Found', target: 'not-found-page', x: 1320, y: 10510, width: 170, height: 42 },
   { label: 'Password Protected', target: 'top', x: 1320, y: 10562, width: 220, height: 42 },
   { label: 'Licences', target: 'top', x: 1320, y: 10614, width: 130, height: 42 },
   { label: 'Changelog', target: 'top', x: 1320, y: 10666, width: 150, height: 42 },

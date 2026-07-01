@@ -33,7 +33,7 @@ const FOOTER_HOTSPOTS = [
   { label: 'Twitter', target: 'contacts', x: 670, y: 210, width: 52, height: 52 },
   { label: 'Pinterest', target: 'contacts', x: 752, y: 210, width: 52, height: 52 },
   { label: 'Style Guide', target: 'top', x: 1010, y: 68, width: 150, height: 42 },
-  { label: '404 Not Found', target: 'top', x: 1010, y: 119, width: 170, height: 42 },
+  { label: '404 Not Found', target: 'not-found-page', x: 1010, y: 119, width: 170, height: 42 },
   { label: 'Password Protected', target: 'top', x: 1010, y: 170, width: 220, height: 42 },
   { label: 'Licences', target: 'top', x: 1010, y: 222, width: 130, height: 42 },
   { label: 'Changelog', target: 'top', x: 1010, y: 274, width: 150, height: 42 },

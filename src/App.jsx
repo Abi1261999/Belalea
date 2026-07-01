@@ -3,6 +3,7 @@ import AboutPage from './components/AboutPage'
 import BlogPage from './components/BlogPage'
 import BlogSinglePage from './components/BlogSinglePage'
 import ContactPage from './components/ContactPage'
+import NotFoundPage from './components/NotFoundPage'
 import PageImage from './components/PageImage'
 import ProductPage from './components/ProductPage'
 import ShopPage from './components/ShopPage'
@@ -54,6 +55,13 @@ function App() {
       return
     }
 
+    if (target === 'not-found-page') {
+      setCurrentPage('not-found')
+      window.history.replaceState(null, '', '#404')
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+      return
+    }
+
     setCurrentPage('home')
     window.history.replaceState(null, '', target ? `#${target}` : '#top')
 
@@ -77,6 +85,8 @@ function App() {
         <BlogSinglePage onNavigate={navigateTo} />
       ) : currentPage === 'contact' ? (
         <ContactPage onNavigate={navigateTo} />
+      ) : currentPage === 'not-found' ? (
+        <NotFoundPage onNavigate={navigateTo} />
       ) : (
         <PageImage onNavigate={navigateTo} />
       )}
