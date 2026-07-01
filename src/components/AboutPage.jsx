@@ -9,7 +9,7 @@ const HOTSPOTS = [
   { label: 'О нас', target: 'about-page', x: 540, y: 72, width: 90, height: 72 },
   { label: 'Каталог', target: 'shop-page', x: 650, y: 72, width: 135, height: 72 },
   { label: 'Дилерам', target: 'dealers', x: 790, y: 72, width: 135, height: 72 },
-  { label: 'Новости', target: 'news', x: 930, y: 72, width: 120, height: 72 },
+  { label: 'Новости', target: 'blog-page', x: 930, y: 72, width: 120, height: 72 },
   { label: 'Контакты', target: 'contacts', x: 1582, y: 62, width: 190, height: 84 },
   { label: 'Контакты в описании', target: 'contacts', x: 985, y: 1640, width: 205, height: 82 },
   { label: 'Смотреть все предложения', target: 'shop-page', x: 1400, y: 3126, width: 250, height: 84 },

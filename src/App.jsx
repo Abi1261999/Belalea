@@ -1,5 +1,6 @@
 import { useCallback, useState } from 'react'
 import AboutPage from './components/AboutPage'
+import BlogPage from './components/BlogPage'
 import PageImage from './components/PageImage'
 import ProductPage from './components/ProductPage'
 import ShopPage from './components/ShopPage'
@@ -30,6 +31,13 @@ function App() {
       return
     }
 
+    if (target === 'blog-page') {
+      setCurrentPage('blog')
+      window.history.replaceState(null, '', '#news')
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+      return
+    }
+
     setCurrentPage('home')
     window.history.replaceState(null, '', target ? `#${target}` : '#top')
 
@@ -47,6 +55,8 @@ function App() {
         <ShopPage onNavigate={navigateTo} />
       ) : currentPage === 'product' ? (
         <ProductPage onNavigate={navigateTo} />
+      ) : currentPage === 'blog' ? (
+        <BlogPage onNavigate={navigateTo} />
       ) : (
         <PageImage onNavigate={navigateTo} />
       )}

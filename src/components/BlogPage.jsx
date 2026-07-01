@@ -1,8 +1,8 @@
-import productImage from '../assets/product-page.jpg'
-import './ProductPage.css'
+import blogImage from '../assets/blog-page.jpg'
+import './BlogPage.css'
 
 const IMAGE_WIDTH = 1920
-const IMAGE_HEIGHT = 3458
+const IMAGE_HEIGHT = 3717
 
 const HOTSPOTS = [
   { label: 'На главную', target: 'top', x: 150, y: 50, width: 290, height: 110 },
@@ -11,18 +11,19 @@ const HOTSPOTS = [
   { label: 'Дилерам', target: 'dealers', x: 790, y: 72, width: 135, height: 72 },
   { label: 'Новости', target: 'blog-page', x: 930, y: 72, width: 120, height: 72 },
   { label: 'Контакты', target: 'contacts', x: 1582, y: 62, width: 190, height: 84 },
-  { label: 'Основное изображение продукта', target: 'product-page', x: 260, y: 790, width: 590, height: 710 },
-  { label: 'Миниатюра продукта 1', target: 'product-page', x: 315, y: 1525, width: 105, height: 110 },
-  { label: 'Миниатюра продукта 2', target: 'product-page', x: 445, y: 1525, width: 105, height: 110 },
-  { label: 'Миниатюра продукта 3', target: 'product-page', x: 575, y: 1525, width: 105, height: 110 },
-  { label: 'Миниатюра продукта 4', target: 'product-page', x: 705, y: 1525, width: 105, height: 110 },
-  { label: 'Купить на Wildberries', href: 'https://www.wildberries.ru/', x: 940, y: 1138, width: 210, height: 82 },
-  { label: 'Купить на Ozon', href: 'https://www.ozon.ru/', x: 1170, y: 1138, width: 210, height: 82 },
-  { label: 'Похожий продукт 1', target: 'product-page', x: 260, y: 1785, width: 330, height: 550 },
-  { label: 'Похожий продукт 2', target: 'product-page', x: 620, y: 1785, width: 330, height: 550 },
-  { label: 'Похожий продукт 3', target: 'product-page', x: 980, y: 1785, width: 330, height: 550 },
-  { label: 'Похожий продукт 4', target: 'product-page', x: 1340, y: 1785, width: 330, height: 550 },
-  { label: 'Подписаться на акции', href: 'mailto:needhelp@organia.com', x: 1360, y: 2696, width: 220, height: 82 },
+  { label: 'Новость о витамине D', target: 'blog-page', x: 258, y: 780, width: 684, height: 560 },
+  { label: 'Новость о витаминах', target: 'blog-page', x: 976, y: 780, width: 686, height: 560 },
+  { label: 'Новость о витамине C', target: 'blog-page', x: 258, y: 1460, width: 684, height: 560 },
+  { label: 'Новость об органических продуктах', target: 'blog-page', x: 976, y: 1460, width: 686, height: 560 },
+  { label: 'Новость о фруктах', target: 'blog-page', x: 258, y: 2140, width: 684, height: 560 },
+  { label: 'Новость о пластике', target: 'blog-page', x: 976, y: 2140, width: 686, height: 560 },
+  { label: 'Подписаться на акции', href: 'mailto:needhelp@organia.com', x: 1360, y: 2992, width: 220, height: 82 },
+  { label: 'Email', href: 'mailto:needhelp@organia.com', x: 450, y: 3378, width: 160, height: 70 },
+  { label: 'Телефон', href: 'tel:666888888', x: 448, y: 3470, width: 164, height: 70 },
+  { label: 'Instagram', target: 'contacts', x: 830, y: 3548, width: 44, height: 44 },
+  { label: 'Facebook', target: 'contacts', x: 916, y: 3548, width: 44, height: 44 },
+  { label: 'Twitter', target: 'contacts', x: 998, y: 3548, width: 44, height: 44 },
+  { label: 'Pinterest', target: 'contacts', x: 1080, y: 3548, width: 44, height: 44 },
 ]
 
 const SEARCH_BOX = { x: 1184, y: 70, width: 300, height: 72 }
@@ -32,7 +33,7 @@ function toPercent(value, total) {
   return `${(value / total) * 100}%`
 }
 
-function ProductPage({ onNavigate }) {
+function BlogPage({ onNavigate }) {
   function handleSearch(event) {
     event.preventDefault()
     onNavigate('shop-page')
@@ -45,23 +46,23 @@ function ProductPage({ onNavigate }) {
   }
 
   return (
-    <main className="product-page-image" aria-label="Belaléa product detail page design">
-      <div className="product-page-image__canvas">
+    <main className="blog-page-image" aria-label="Belaléa news page design">
+      <div className="blog-page-image__canvas">
         <img
-          className="product-page-image__asset"
-          src={productImage}
-          alt="Belaléa product detail page for rice flour"
+          className="blog-page-image__asset"
+          src={blogImage}
+          alt="Belaléa news page with article cards and subscription banner"
           width="1920"
-          height="3458"
+          height="3717"
           loading="eager"
           decoding="async"
           fetchPriority="high"
           draggable="false"
         />
 
-        <form className="product-page-image__search" onSubmit={handleSearch} role="search">
+        <form className="blog-page-image__search" onSubmit={handleSearch} role="search">
           <input
-            className="product-page-image__search-input"
+            className="blog-page-image__search-input"
             type="search"
             placeholder="Поиск..."
             aria-label="Поиск по каталогу"
@@ -73,7 +74,7 @@ function ProductPage({ onNavigate }) {
             }}
           />
           <button
-            className="product-page-image__search-button"
+            className="blog-page-image__search-button"
             type="submit"
             aria-label="Найти"
             style={{
@@ -87,7 +88,7 @@ function ProductPage({ onNavigate }) {
 
         {HOTSPOTS.map((hotspot) => (
           <a
-            className="product-page-image__hotspot"
+            className="blog-page-image__hotspot"
             href={hotspot.href || `#${hotspot.target}`}
             key={hotspot.label}
             aria-label={hotspot.label}
@@ -107,4 +108,4 @@ function ProductPage({ onNavigate }) {
   )
 }
 
-export default ProductPage
+export default BlogPage
