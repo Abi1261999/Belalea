@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import contactBanner from '../assets/contact-banner.jpg'
+import contactIntro from '../assets/contact-intro-section.jpg'
+import contactMap from '../assets/contact-map-section.jpg'
 import footerImage from '../assets/footer-section.jpg'
 import logo from '../assets/logo.svg'
 import newsletterImage from '../assets/newsletter-section.jpg'
@@ -65,50 +67,19 @@ function ContactPage({ onNavigate }) {
       </section>
 
       <section className="contact-intro">
-        <div className="contact-intro__image" aria-hidden="true">
-          <span />
-        </div>
-        <div className="contact-intro__content">
-          <h2>Мы с удовольствием поговорим о том, как мы можем работать вместе.</h2>
-          <p>
-            Simply dummy text of the printing and typesetting industry. Lorem had ceased to been the
-            industry's standard dummy text ever since the 1500s.
-          </p>
-          <div className="contact-methods">
-            <a href="mailto:support@belalea.by">
-              <span>✉</span>
-              <strong>Сообщение</strong>
-              <small>support@belalea.by</small>
-            </a>
-            <a href="tel:+375297897895">
-              <span>☏</span>
-              <strong>Звонок</strong>
-              <small>+375 (29) 789 789 5</small>
-            </a>
-          </div>
-          <div className="contact-socials">
-            <a href="#instagram" aria-label="Instagram">◎</a>
-            <a href="#facebook" aria-label="Facebook">f</a>
-            <a href="#twitter" aria-label="Twitter">t</a>
-            <a href="#pinterest" aria-label="Pinterest">p</a>
-          </div>
-        </div>
+        <img src={contactIntro} alt="Contact Belaléa support and phone" />
+        <a className="contact-intro__email" href="mailto:support@belalea.by">Email</a>
+        <a className="contact-intro__phone" href="tel:+375297897895">Phone</a>
+        <a className="contact-intro__instagram" href="#instagram" aria-label="Instagram">Instagram</a>
+        <a className="contact-intro__facebook" href="#facebook" aria-label="Facebook">Facebook</a>
+        <a className="contact-intro__twitter" href="#twitter" aria-label="Twitter">Twitter</a>
+        <a className="contact-intro__pinterest" href="#pinterest" aria-label="Pinterest">Pinterest</a>
       </section>
 
       <section className="contact-map">
-        <div className="contact-map__card">
-          <span>Где мы ?</span>
-          <h2>Наш адрес</h2>
-          <p>Мы находимся в самом экологически чистом районе Беларуси.</p>
-          <a href="https://maps.google.com/?q=Kletsk" target="_blank" rel="noreferrer">
-            <strong>Офис:</strong>
-            г.Клецк, ул. Аветисова
-          </a>
-          <a href="https://maps.google.com/?q=Kletsk" target="_blank" rel="noreferrer">
-            <strong>Производство:</strong>
-            г.Клецк, ул. Нагдаляна
-          </a>
-        </div>
+        <img src={contactMap} alt="Belaléa address map section" />
+        <a className="contact-map__office" href="https://maps.google.com/?q=Kletsk%20Avesitova" target="_blank" rel="noreferrer">Офис</a>
+        <a className="contact-map__production" href="https://maps.google.com/?q=Kletsk%20Nagdaliana" target="_blank" rel="noreferrer">Производство</a>
       </section>
 
       <form className="contact-form" onSubmit={handleContactSubmit}>
