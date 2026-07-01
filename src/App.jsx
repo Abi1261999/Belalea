@@ -2,6 +2,7 @@ import { useCallback, useState } from 'react'
 import AboutPage from './components/AboutPage'
 import BlogPage from './components/BlogPage'
 import BlogSinglePage from './components/BlogSinglePage'
+import ContactPage from './components/ContactPage'
 import PageImage from './components/PageImage'
 import ProductPage from './components/ProductPage'
 import ShopPage from './components/ShopPage'
@@ -46,6 +47,13 @@ function App() {
       return
     }
 
+    if (target === 'contacts') {
+      setCurrentPage('contact')
+      window.history.replaceState(null, '', '#contacts')
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+      return
+    }
+
     setCurrentPage('home')
     window.history.replaceState(null, '', target ? `#${target}` : '#top')
 
@@ -67,6 +75,8 @@ function App() {
         <BlogPage onNavigate={navigateTo} />
       ) : currentPage === 'blog-single' ? (
         <BlogSinglePage onNavigate={navigateTo} />
+      ) : currentPage === 'contact' ? (
+        <ContactPage onNavigate={navigateTo} />
       ) : (
         <PageImage onNavigate={navigateTo} />
       )}
