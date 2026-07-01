@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import contactBanner from '../assets/contact-banner.jpg'
 import footerImage from '../assets/footer-section.jpg'
 import logo from '../assets/logo.svg'
 import newsletterImage from '../assets/newsletter-section.jpg'
@@ -60,9 +61,7 @@ function ContactPage({ onNavigate }) {
       </header>
 
       <section className="contact-hero">
-        <div className="contact-hero__fruit contact-hero__fruit--left" aria-hidden="true" />
-        <h1>Контакты</h1>
-        <div className="contact-hero__fruit contact-hero__fruit--right" aria-hidden="true" />
+        <img src={contactBanner} alt="Контакты" />
       </section>
 
       <section className="contact-intro">
