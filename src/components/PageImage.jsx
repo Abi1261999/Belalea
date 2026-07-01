@@ -50,10 +50,17 @@ const HOTSPOTS = [
   { label: 'Facebook', target: 'contacts', x: 916, y: 10640, width: 44, height: 44 },
   { label: 'Twitter', target: 'contacts', x: 998, y: 10640, width: 44, height: 44 },
   { label: 'Pinterest', target: 'contacts', x: 1080, y: 10640, width: 44, height: 44 },
+  { label: 'Style Guide', target: 'top', x: 1320, y: 10458, width: 150, height: 42 },
+  { label: '404 Not Found', target: 'top', x: 1320, y: 10510, width: 170, height: 42 },
+  { label: 'Password Protected', target: 'top', x: 1320, y: 10562, width: 220, height: 42 },
+  { label: 'Licences', target: 'top', x: 1320, y: 10614, width: 130, height: 42 },
+  { label: 'Changelog', target: 'top', x: 1320, y: 10666, width: 150, height: 42 },
 ]
 
 const SEARCH_BOX = { x: 1184, y: 70, width: 300, height: 72 }
 const SEARCH_BUTTON = { x: 1490, y: 62, width: 80, height: 84 }
+const SUBSCRIBE_BOX = { x: 996, y: 10106, width: 344, height: 82 }
+const SUBSCRIBE_BUTTON = { x: 1360, y: 10106, width: 220, height: 82 }
 
 function toPercent(value, total) {
   return `${(value / total) * 100}%`
@@ -63,6 +70,11 @@ function PageImage({ onNavigate }) {
   function handleSearch(event) {
     event.preventDefault()
     onNavigate('shop-page')
+  }
+
+  function handleSubscribe(event) {
+    event.preventDefault()
+    window.location.href = 'mailto:needhelp@organia.com?subject=Belal%C3%A9a%20newsletter'
   }
 
   function handleHotspotClick(event, hotspot) {
@@ -118,6 +130,32 @@ function PageImage({ onNavigate }) {
               top: toPercent(SEARCH_BUTTON.y, IMAGE_HEIGHT),
               width: toPercent(SEARCH_BUTTON.width, IMAGE_WIDTH),
               height: toPercent(SEARCH_BUTTON.height, IMAGE_HEIGHT),
+            }}
+          />
+        </form>
+
+        <form className="page-image__subscribe" onSubmit={handleSubscribe}>
+          <input
+            className="page-image__subscribe-input"
+            type="email"
+            placeholder="Введите ваш e-mail адрес"
+            aria-label="Email для подписки"
+            style={{
+              left: toPercent(SUBSCRIBE_BOX.x, IMAGE_WIDTH),
+              top: toPercent(SUBSCRIBE_BOX.y, IMAGE_HEIGHT),
+              width: toPercent(SUBSCRIBE_BOX.width, IMAGE_WIDTH),
+              height: toPercent(SUBSCRIBE_BOX.height, IMAGE_HEIGHT),
+            }}
+          />
+          <button
+            className="page-image__subscribe-button"
+            type="submit"
+            aria-label="Подписаться на акции"
+            style={{
+              left: toPercent(SUBSCRIBE_BUTTON.x, IMAGE_WIDTH),
+              top: toPercent(SUBSCRIBE_BUTTON.y, IMAGE_HEIGHT),
+              width: toPercent(SUBSCRIBE_BUTTON.width, IMAGE_WIDTH),
+              height: toPercent(SUBSCRIBE_BUTTON.height, IMAGE_HEIGHT),
             }}
           />
         </form>
